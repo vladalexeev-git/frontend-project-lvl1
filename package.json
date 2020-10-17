@@ -1,6 +1,6 @@
 {
   "name": "brain671games",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "type": "module",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "brain-calc": "bin/brain-calc.js",
     "brain-gcd": "bin/brain-gcd.js",
     "brain-progression": "bin/brain-progression.js",
-    "brain-prime": "bin/brain-praim.js"
+    "brain-prime": "bin/brain-prime.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
