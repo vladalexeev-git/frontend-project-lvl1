@@ -8,19 +8,19 @@ const description = 'Answer "yes" if given number is prime. Otherwise answer "no
 const gamePrime = () => {
   let isPrime = true;
   let correctAnswer;
-  const n = getRandomNum(1, 100);
+  const n = getRandomNum(2, 99);
   const question = `${n}`;
 
   if (n === 2) {
     correctAnswer = (isPrime) ? 'yes' : 'no';
     return cons(question, correctAnswer);
   }
-  if (isEven(n)) {
+  if (isEven(n) || n < 2) {
     isPrime = false;
     correctAnswer = (isPrime) ? 'yes' : 'no';
     return cons(question, correctAnswer);
   }
-  for (let i = (n - 1); i > 1; i -= 1) {
+  for (let i = (n - 1); i > 2; i -= 1) {
     if (n % i === 0) isPrime = false;
   }
 
