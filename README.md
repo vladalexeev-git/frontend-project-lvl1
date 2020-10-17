@@ -4,6 +4,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)      ![Node.jsCI](https://github.com/vladalexeev-git/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
 ## Install
 `$ sudo npm install -g brain671games`
+
+[![asciicast](https://asciinema.org/a/wbk6SsFX45kx54qv5kpvpLUf2.svg)](https://asciinema.org/a/wbk6SsFX45kx54qv5kpvpLUf2)
 ## And play!
 ### Brain Even 
 `$ brain-even`
