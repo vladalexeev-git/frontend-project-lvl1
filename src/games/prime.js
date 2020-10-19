@@ -7,24 +7,18 @@ const description = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 const gamePrime = () => {
   let isPrime = true;
-  let correctAnswer;
-  const n = getRandomNum(2, 99);
-  const question = `${n}`;
+  const num = getRandomNum(20, 24);
+  const question = `${num}`;
 
-  if (n === 2) {
-    correctAnswer = (isPrime) ? 'yes' : 'no';
-    return cons(question, correctAnswer);
-  }
-  if (isEven(n) || n < 2) {
-    isPrime = false;
-    correctAnswer = (isPrime) ? 'yes' : 'no';
-    return cons(question, correctAnswer);
-  }
-  for (let i = (n - 1); i > 2; i -= 1) {
-    if (n % i === 0) isPrime = false;
+  if (num === 2) isPrime = true;
+  else if (isEven(num) || num < 2) isPrime = false;
+  else {
+    for (let i = (num - 1); i > 2; i -= 1) {
+      if (num % i === 0) isPrime = false;
+    }
   }
 
-  correctAnswer = (isPrime) ? 'yes' : 'no';
+  const correctAnswer = (isPrime) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
