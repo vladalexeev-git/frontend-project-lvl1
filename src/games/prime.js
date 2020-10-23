@@ -1,25 +1,25 @@
 import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
-import isEven from '../isEven.js';
 import gameBuild from '../index.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gamePrime = () => {
-  let isPrime = true;
-  const num = getRandomNum(20, 24);
-  const question = `${num}`;
+const isPrime = (num) => {
+  if (num < 2) return false;
 
-  if (num === 2) isPrime = true;
-  else if (isEven(num) || num < 2) isPrime = false;
-  else {
-    for (let i = (num - 1); i > 2; i -= 1) {
-      if (num % i === 0) isPrime = false;
-    }
+  for (let i = 2; i <= num / 2; i += 1) {
+    if (num % i === 0) return false;
   }
 
-  const correctAnswer = (isPrime) ? 'yes' : 'no';
+  return true;
+};
+
+const genGameData = () => {
+  const num = getRandomNum(2, 99);
+  const question = num.toString();
+  const correctAnswer = (isPrime(num)) ? 'yes' : 'no';
+
   return cons(question, correctAnswer);
 };
 
-export default () => gameBuild(gamePrime, description);
+export default () => gameBuild(genGameData, description);

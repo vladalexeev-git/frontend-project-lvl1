@@ -2,25 +2,31 @@ import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
 import gameBuild from '../index.js';
 
-const progNum = 6;
+const lengthOfProg = 6;
 const description = 'What number is missing in the progression?';
 
-const progression = () => {
-  const hiddenElemPos = getRandomNum(0, (progNum - 1));
-  let startElem = getRandomNum(1, 100);
-  const increaseCount = getRandomNum(2, 9);
-  const prog = [startElem];
+const getProgression = (startElem, increaseCount) => {
+  let progression = [startElem];
 
-  for (let i = 0; i < progNum; i += 1) {
-    startElem += increaseCount;
-    prog.push(startElem);
+  for (let i = 0; i < lengthOfProg; i += 1) {
+    progression = [...progression, progression[i] += increaseCount];
   }
-  const correctAnswer = prog[hiddenElemPos];
-  prog[hiddenElemPos] = '..';
 
-  const question = prog.join(' ');
+  return progression;
+};
+
+const genGameData = () => {
+  const indexOfElem = getRandomNum(0, (lengthOfProg - 1));
+  const startElem = getRandomNum(1, 100);
+  const increaseCount = getRandomNum(2, 9);
+  const progression = getProgression(startElem, increaseCount);
+
+  const correctAnswer = progression[indexOfElem];
+  progression[indexOfElem] = '..';
+
+  const question = progression.join(' ');
 
   return cons(question, correctAnswer.toString());
 };
 
-export default () => gameBuild(progression, description);
+export default () => gameBuild(genGameData, description);

@@ -4,18 +4,26 @@ import gameBuild from '../index.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const gcd = () => {
-  let num1 = getRandomNum(2, 100);
-  let num2 = getRandomNum(2, 100);
-  const question = `${num1} ${num2}`;
+const getGcd = (num1, num2) => {
+  let a = num1;
+  let b = num2;
 
-  while (num1 !== 0 && num2 !== 0) {
-    if (num1 > num2) num1 %= num2;
-    else num2 %= num1;
+  while (a !== 0 && b !== 0) {
+    if (a > b) a %= b;
+    else b %= a;
   }
-  const correctAnswer = num1 + num2;
+
+  return a + b;
+};
+
+const genGameData = () => {
+  const num1 = getRandomNum(2, 100);
+  const num2 = getRandomNum(2, 100);
+
+  const question = `${num1} ${num2}`;
+  const correctAnswer = getGcd(num1, num2);
 
   return cons(question, correctAnswer.toString());
 };
 
-export default () => gameBuild(gcd, description);
+export default () => gameBuild(genGameData, description);

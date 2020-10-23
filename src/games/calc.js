@@ -4,26 +4,31 @@ import gameBuild from '../index.js';
 
 const description = 'What is the result of the expression?';
 
-const gameCalc = () => {
-  let correctAnswer;
-  let operator;
-  const num1 = getRandomNum(1, 20);
-  const num2 = getRandomNum(1, 20);
-  const num3 = getRandomNum(1, 3);
-  switch (num3) {
-    case 1:
-      correctAnswer = num1 - num2;
-      operator = '-';
+const getCalc = (num1, num2, operator) => {
+  let result;
+  switch (operator) {
+    case '-':
+      result = num1 - num2;
       break;
-    case 2:
-      correctAnswer = num1 + num2;
-      operator = '+';
+    case '+':
+      result = num1 + num2;
       break;
     default:
-      correctAnswer = num1 * num2;
-      operator = '*';
+      result = num1 * num2;
   }
-  const question = `${num1} ${operator} ${num2}`;
+
+  return result;
+};
+
+const genGameData = () => {
+  const num1 = getRandomNum(1, 20);
+  const num2 = getRandomNum(1, 20);
+  const operators = ['-', '+', '*'];
+  const indexOfOperator = getRandomNum(0, 2);
+  const question = `${num1} ${operators[indexOfOperator]} ${num2}`;
+  const correctAnswer = getCalc(num1, num2, operators[indexOfOperator]);
+
   return cons(question, correctAnswer.toString());
 };
-export default () => gameBuild(gameCalc, description);
+
+export default () => gameBuild(genGameData, description);
