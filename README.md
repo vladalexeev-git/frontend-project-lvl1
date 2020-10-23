@@ -1,7 +1,7 @@
 # Brain Games
 ## Set of console mini games
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)      ![Node.jsCI](https://github.com/vladalexeev-git/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5d1240ffc385656f3616/maintainability)](https://codeclimate.com/github/vladalexeev-git/frontend-project-lvl1/maintainability) [![Node.jsCI](https://github.com/vladalexeev-git/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)](https://github.com/vladalexeev-git/frontend-project-lvl1/actions)
 ## Install
 `$ sudo npm install -g brain671games`
 
