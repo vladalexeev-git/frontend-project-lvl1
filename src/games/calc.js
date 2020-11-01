@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
-import gameBuild from '../index.js';
+import runGame from '../index.js';
 
 const description = 'What is the result of the expression?';
 
@@ -31,4 +31,4 @@ const genGameData = () => {
   return cons(question, correctAnswer.toString());
 };
 
-export default () => gameBuild(genGameData, description);
+export default () => runGame(genGameData, description);

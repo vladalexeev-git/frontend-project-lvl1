@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
-import gameBuild from '../index.js';
+import runGame from '../index.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -26,4 +26,4 @@ const genGameData = () => {
   return cons(question, correctAnswer.toString());
 };
 
-export default () => gameBuild(genGameData, description);
+export default () => runGame(genGameData, description);

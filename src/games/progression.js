@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
-import gameBuild from '../index.js';
+import runGame from '../index.js';
 
 const lengthOfProg = 6;
 const description = 'What number is missing in the progression?';
@@ -29,4 +29,4 @@ const genGameData = () => {
   return cons(question, correctAnswer.toString());
 };
 
-export default () => gameBuild(genGameData, description);
+export default () => runGame(genGameData, description);
