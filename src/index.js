@@ -18,9 +18,10 @@ export default (genGameData, gameDescription) => {
 
     if (correctAnswer !== userAnswer) {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
-      return console.log(`Lets try again, ${userName}!`);
+      console.log(`Lets try again, ${userName}!`);
+      return;
     }
     console.log('Correct!');
   }
-  return console.log(`Congratulations, ${userName}!`);
+  console.log(`Congratulations, ${userName}!`);
 };
