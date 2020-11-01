@@ -2,14 +2,14 @@ import { cons } from '@hexlet/pairs';
 import getRandomNum from '../random.js';
 import runGame from '../index.js';
 
-const lengthOfProg = 6;
+const lengthOfProg = 7;
 const description = 'What number is missing in the progression?';
 
-const getProgression = (startElem, increaseCount) => {
-  let progression = [startElem];
+const makeProgression = (startElem, increaseCount) => {
+  const progression = [startElem];
 
-  for (let i = 0; i < lengthOfProg; i += 1) {
-    progression = [...progression, progression[i] += increaseCount];
+  for (let i = 0; i < lengthOfProg - 1; i += 1) {
+    progression.push(progression[i] + increaseCount);
   }
 
   return progression;
@@ -19,7 +19,7 @@ const genGameData = () => {
   const indexOfElem = getRandomNum(0, (lengthOfProg - 1));
   const startElem = getRandomNum(1, 100);
   const increaseCount = getRandomNum(2, 9);
-  const progression = getProgression(startElem, increaseCount);
+  const progression = makeProgression(startElem, increaseCount);
 
   const correctAnswer = progression[indexOfElem];
   progression[indexOfElem] = '..';

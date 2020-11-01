@@ -3,28 +3,27 @@ import getRandomNum from '../random.js';
 import runGame from '../index.js';
 
 const description = 'What is the result of the expression?';
+const operators = ['-', '+', '*'];
+const lengthOfOperators = operators.length;
 
 const getCalc = (num1, num2, operator) => {
-  let result;
   switch (operator) {
     case '-':
-      result = num1 - num2;
-      break;
+      return num1 - num2;
     case '+':
-      result = num1 + num2;
-      break;
+      return num1 + num2;
+    case '*':
+      return num1 * num2;
     default:
-      result = num1 * num2;
+      return `There is no result of the expression for the received operator: '${operator}' `;
   }
-
-  return result;
 };
 
 const genGameData = () => {
   const num1 = getRandomNum(1, 20);
   const num2 = getRandomNum(1, 20);
-  const operators = ['-', '+', '*'];
-  const indexOfOperator = getRandomNum(0, 2);
+  const indexOfOperator = getRandomNum(0, (lengthOfOperators - 1));
+
   const question = `${num1} ${operators[indexOfOperator]} ${num2}`;
   const correctAnswer = getCalc(num1, num2, operators[indexOfOperator]);
 
